@@ -1,0 +1,14 @@
+# demo-app/templates/service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-service
+spec:
+  type: {{ .Values.mysql.service.type }}
+  ports:
+    - port: {{ .Values.mysql.service.port }}
+      targetPort: mysql
+  selector:
+    app: mysql
+
